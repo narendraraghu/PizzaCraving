@@ -1,0 +1,31 @@
+spring:
+  security:
+    user:
+      name: buzz
+      password: infinity
+  datasource:
+    generate-unique-name: false
+    name: pizzacloud
+
+pizza:
+  orders:
+    pageSize: 10
+
+
+  discount:
+    codes:
+      abcdef: 10
+
+
+---
+spring:
+  profiles: prod
+
+  datasource:
+    url: jdbc:mysql://localhost/pizzacloud
+    username: pizzauser
+    password: pizzapassword
+
+logging:
+  level:
+    pizzas: WARN
