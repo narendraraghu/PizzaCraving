@@ -103,7 +103,7 @@ public class DesignPizzaControllerTest {
 
   @Test
   @WithMockUser(username="testuser", password="testpass", authorities="ROLE_USER")
-  public void processpizza() throws Exception {
+  public void processPizza() throws Exception {
     when(designRepository.save(design))
         .thenReturn(design);
 

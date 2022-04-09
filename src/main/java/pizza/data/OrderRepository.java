@@ -14,8 +14,8 @@ public interface OrderRepository
   List<PizzaOrder> findByUserOrderByPlacedAtDesc(
           User user, Pageable pageable);
 
-  /*
-  List<Order> findByUserOrderByPlacedAtDesc(User user);
-   */
+
+  List<PizzaOrder> findByUserOrderByPlacedAtDesc(User user);
+
 
 }

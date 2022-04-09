@@ -44,7 +44,7 @@ public class DesignPizzaController {
   @ModelAttribute
   public void addIngredientsToModel(Model model) {
     List<Ingredient> ingredients = new ArrayList<>();
-    ingredientRepo.findAll().forEach(i -> ingredients.add(i));
+    ingredientRepo.findAll().forEach(ingredients::add);
 
     Type[] types = Type.values();
     for (Type type : types) {
@@ -66,8 +66,7 @@ public class DesignPizzaController {
   @ModelAttribute(name = "user")
   public User user(Principal principal) {
 	    String username = principal.getName();
-	    User user = userRepo.findByUsername(username);
-	    return user;
+    return userRepo.findByUsername(username);
   }
 
 
@@ -77,7 +76,7 @@ public class DesignPizzaController {
   }
 
   @PostMapping
-  public String processpizza(
+  public String processPizza(
       @Valid Pizza pizza, Errors errors,
       @ModelAttribute PizzaOrder order) {
 
